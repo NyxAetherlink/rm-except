@@ -4,10 +4,10 @@ A simple Python utility to delete everything in your current directory except sp
 
 ## Why?
 
-Ever wanted to nuke a directory but keep just a few files? Tired of `rm -r file1 file2 file3` with verbose syntax? This tool makes it dead simple:
+Ever wanted to nuke a directory but keep just a few files? This tool makes it dead simple:
 
 ```bash
-cleanup -keep_this.txt -important_folder -config.yml
+rmexcept keep_this.txt important_folder config.yml
 ```
 
 Done. Everything else is gone.
@@ -18,7 +18,7 @@ Done. Everything else is gone.
 
 ```bash
 # Copy to ~/.local/bin
-cp cleanup.py ~/.local/bin/cleanup
+cp rmexcept.py ~/.local/bin/rmexcept
 
 # Add to your PATH in ~/.config/fish/config.fish (or your shell)
 set -gx PATH ~/.local/bin $PATH
@@ -26,22 +26,22 @@ set -gx PATH ~/.local/bin $PATH
 
 Then use it anywhere:
 ```bash
-cleanup -file1 -file2
+rmexcept file1 file2
 ```
 
 ### Option 2: Use as Alias
 
 ```bash
-alias cleanup='/path/to/cleanup.py'
+alias rmexcept='/path/to/rmexcept.py'
 ```
 
 ## Usage
 
 ```bash
-cleanup -file1 -file2 -file3
+rmexcept file1 file2 file3
 ```
 
-Files/directories to keep are specified with a leading dash (`-`). The script will:
+Just list the files/directories to keep. The script will:
 1. Show you what will be deleted
 2. Ask for confirmation
 3. Delete everything else in the current directory
@@ -49,7 +49,7 @@ Files/directories to keep are specified with a leading dash (`-`). The script wi
 ### Example
 
 ```
-$ cleanup -important.txt -data/
+$ rmexcept important.txt data/
 
 Will delete 3 items:
   [FILE] temp.log

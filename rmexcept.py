@@ -5,14 +5,11 @@ import shutil
 from pathlib import Path
 
 def main():
-    # Parse arguments - everything after a dash is a file to keep
-    keep_files = set()
-    for arg in sys.argv[1:]:
-        if arg.startswith('-'):
-            keep_files.add(arg[1:])
+    # Parse arguments - files to keep
+    keep_files = set(sys.argv[1:])
 
     if not keep_files:
-        print("Usage: cleanup.py -file1 -file2 -file3 ...")
+        print("Usage: rmexcept file1 file2 file3 ...")
         print("Deletes everything in current directory except specified files")
         sys.exit(1)
 
